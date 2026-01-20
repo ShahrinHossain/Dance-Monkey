@@ -1,9 +1,9 @@
 import time
 import json
 from tqdm import tqdm
-from crawler.url_discovery import get_sitemap_urls
-from crawler.article_extractor import fetch_and_extract
-from crawler.validate_and_save import to_record, append_jsonl
+from backend.crawler.url_discovery import get_sitemap_urls
+from backend.crawler.article_extractor import fetch_and_extract
+from backend.crawler.validate_and_save import to_record, append_jsonl
 
 CRAWL_DELAY = 1.0  # polite delay
 
