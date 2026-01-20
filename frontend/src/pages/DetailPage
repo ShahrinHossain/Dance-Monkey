@@ -1,0 +1,69 @@
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import '../styles/DetailPage.css';
+
+function DetailPage() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [detail, setDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDetail = async () => {
+      setLoading(true);
+      try {
+        // Replace with your backend API endpoint
+        const response = await fetch(`http://localhost:5000/api/detail/${id}`);
+        const data = await response.json();
+        setDetail(data);
+      } catch (error) {
+        console.error('Error fetching detail:', error);
+        // Mock data for demonstration
+        setDetail({
+          id: id,
+          title: `Detail Page ${id}`,
+          url: `https://example.com/${id}`,
+          content: 'This is the detailed content of the page. Replace this with actual content from your backend.',
+          author: 'Author Name',
+          date: new Date().toLocaleDateString()
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDetail();
+  }, [id]);
+
+  return (
+    <div className="detail-container">
+      <header className="detail-header">
+        <h2 className="logo-small" onClick={() => navigate('/')}>Search Engine</h2>
+        <button className="back-button" onClick={() => navigate(-1)}>
+          ← Back to Results
+        </button>
+      </header>
+
+      <div className="detail-content">
+        {loading ? (
+          <div className="loading">Loading...</div>
+        ) : detail ? (
+          <article className="detail-article">
+            <h1 className="detail-title">{detail.title}</h1>
+            <div className="detail-meta">
+              <span className="detail-url">{detail.url}</span>
+              <span className="detail-date">{detail.date}</span>
+            </div>
+            <div className="detail-body">
+              <p>{detail.content}</p>
+            </div>
+          </article>
+        ) : (
+          <div className="error">Content not found</div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default DetailPage;

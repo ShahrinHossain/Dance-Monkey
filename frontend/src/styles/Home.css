@@ -1,0 +1,27 @@
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .home-content {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .logo {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 48px;
+    }
+  }

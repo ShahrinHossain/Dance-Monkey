@@ -1,0 +1,23 @@
+bangla:
+  - name: prothomalo
+    base: https://www.prothomalo.com
+  - name: bdnews24_bn
+    base: https://bangla.bdnews24.com
+  - name: kalerkantho
+    base: https://www.kalerkantho.com
+  - name: banglatribune
+    base: https://banglatribune.com
+  - name: dhakapost
+    base: https://www.dhakapost.com
+
+english:
+  - name: dailystar
+    base: https://www.thedailystar.net
+  - name: newage
+    base: https://www.newagebd.net
+  - name: newnation
+    base: https://www.dailynewnation.com
+  - name: dailysun
+    base: https://www.daily-sun.com
+  - name: dhakatribune
+    base: https://www.dhakatribune.com
