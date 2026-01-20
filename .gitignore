@@ -1,0 +1,10 @@
+backend/venv/
+
+pycache/
+*.pyc
+*.pyo
+*.pyd
+
+.env
+
+*.log
